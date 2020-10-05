@@ -6,6 +6,15 @@ base on [https://github.com/nori-dev-akg/esp32-ST7789-Upload](https://github.com
 
 使得ttgo可以使用。
 
+|  功能   | 针脚  |
+|  :----:  | :----:  |
+| MOSI  | 19 |
+| SCLK  | 18 |
+| CS  | 5 |
+| DC  | 16 |
+| RST  | 23 |
+| BL  | 4 |
+
 ![](demo.jpg)
 
 小程序端：[https://developers.weixin.qq.com/s/w7AQ6Rmm7dkY](https://developers.weixin.qq.com/s/w7AQ6Rmm7dkY) 
