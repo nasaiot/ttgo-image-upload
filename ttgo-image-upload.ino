@@ -39,18 +39,20 @@ char imagetypebuf[MAX_BUF_SIZE];
 int imagetypepos = 0;
 char imagebuf[MAX_IMAGE_SIZE];
 int imagepos = 0;
-
+String IPaddress;
 void setup()
 {
+    tft.begin();
+    tft.setRotation(1);
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextColor(TFT_WHITE, TFT_BLACK);
+    tft.drawCentreString("WiFi Connecting.",120,65,4);
     bool ret;
-
     Serial.begin(115200);
-
     // We start by connecting to a WiFi network
     Serial.println();
     Serial.println();
     Serial.println("WiFi Connecting.");
-
     WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
     while (WiFi.status() != WL_CONNECTED)
@@ -59,13 +61,10 @@ void setup()
         Serial.print(".");
     }
     Serial.println(WiFi.localIP());
-
-    server.begin();
-
-    tft.begin();
-    tft.setRotation(0);
+    IPaddress = WiFi.localIP().toString();
     tft.fillScreen(TFT_BLACK);
-    tft.drawCentreString(WiFi.localIP()+"",135,240,4);
+    tft.drawCentreString(IPaddress,120,65,4);
+    server.begin();
 }
 
 void printUploadForm(WiFiClient client)
@@ -349,6 +348,7 @@ void drawArrayJpeg(uint8_t *buff_array, uint32_t buf_size, int xpos, int ypos)
 //   Decode and paint onto the TFT screen
 //====================================================================================
 void renderJPEG(int xpos, int ypos) {
+  tft.setRotation(0);
   tft.fillScreen(TFT_BLACK);
   // retrieve infomration about the image
   uint16_t *pImg;
