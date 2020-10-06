@@ -27,4 +27,8 @@ base on [https://github.com/nori-dev-akg/esp32-ST7789-Upload](https://github.com
 
 ## miniprogram
 
-小程序端：[https://developers.weixin.qq.com/s/V7nVqSm27LkY](https://developers.weixin.qq.com/s/V7nVqSm27LkY)
+小程序端：miniprogram.zip
+
+## ttgo-image-ap.ino
+
+这个直接以AP模式启动，默认IP是192.168.4.1
