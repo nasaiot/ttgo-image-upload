@@ -64,6 +64,7 @@ void setup()
     IPaddress = WiFi.localIP().toString();
     tft.fillScreen(TFT_BLACK);
     tft.drawCentreString(IPaddress,120,65,4);
+    tft.setRotation(0);
     server.begin();
 }
 
@@ -348,8 +349,6 @@ void drawArrayJpeg(uint8_t *buff_array, uint32_t buf_size, int xpos, int ypos)
 //   Decode and paint onto the TFT screen
 //====================================================================================
 void renderJPEG(int xpos, int ypos) {
-  tft.setRotation(0);
-  tft.fillScreen(TFT_BLACK);
   // retrieve infomration about the image
   uint16_t *pImg;
   uint16_t mcu_w = JpegDec.MCUWidth;
